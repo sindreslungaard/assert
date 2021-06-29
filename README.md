@@ -1,4 +1,4 @@
-# assert
+# assert <img src="https://storage.googleapis.com/gopherizeme.appspot.com/gophers/7fecec3123b09db4f5dc3b8c40b00de3cac8a802.png" alt="gopher" width="40" align="right">
 
 Dead simple 0 dependency "typed" golang validator
 
