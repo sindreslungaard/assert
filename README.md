@@ -44,3 +44,11 @@ func main() {
 | NotEmpty   |               | Checks if the input (formatted to string) is equal to ""                                     |
 | MinLen     | int           | Checks if the length of input (formatted to string) is greater than or equal to the argument |
 | MaxLen     | int           | Checks if the length of input (formatted to string) is less than or equal to the argument    |
+
+### Available type cast assertions
+
+Type casts should always be last in your assertion chain, they are what executes all assertions in the chain and returns any errors or the input converted to the new type.
+
+| Type   | Description                                       |
+| ------ | ------------------------------------------------- |
+| String | Formats the input as a string using `fmt.Sprintf` |
