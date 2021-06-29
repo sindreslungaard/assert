@@ -4,13 +4,15 @@ import "testing"
 
 func TestGeneralPurpose(t *testing.T) {
 
-	str, err := Is("test").MinLen(4).String()
+	src := "test"
+
+	str, err := Is(src).NotEmpty().MinLen(4).String()
 
 	if err != nil {
-		t.FailNow()
+		t.Fatal(err)
 	}
 
-	if str != "test" {
+	if str != src {
 		t.FailNow()
 	}
 

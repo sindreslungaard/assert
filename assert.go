@@ -47,12 +47,28 @@ func (a *Assertion) String() (string, error) {
 	return fmt.Sprintf("%v", a.src), nil
 }
 
+// NotEmpty asserts that the string representation of the
+// source is not equal to ""
+func (a *Assertion) NotEmpty() *Assertion {
+
+	a.add(func(i interface{}) error {
+		if fmt.Sprintf("%v", i) != "" {
+			return nil
+		}
+
+		return fmt.Errorf("assert.required")
+	})
+
+	return a
+
+}
+
 // MinLen asserts that the character length of the source
 // (formatted as string) is greater than or equal to the value
 func (a *Assertion) MinLen(val int) *Assertion {
 
 	a.add(func(i interface{}) error {
-		if len([]rune(fmt.Sprintf("%v", a.src))) >= val {
+		if len([]rune(fmt.Sprintf("%v", i))) >= val {
 			return nil
 		}
 
@@ -68,7 +84,7 @@ func (a *Assertion) MinLen(val int) *Assertion {
 func (a *Assertion) MaxLen(val int) *Assertion {
 
 	a.add(func(i interface{}) error {
-		if len([]rune(fmt.Sprintf("%v", a.src))) <= val {
+		if len([]rune(fmt.Sprintf("%v", i))) <= val {
 			return nil
 		}
 
