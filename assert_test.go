@@ -79,3 +79,17 @@ func TestEmail(t *testing.T) {
 		t.Fatal("not equal")
 	}
 }
+
+func TestMinMaxNum(t *testing.T) {
+	src := 5
+
+	num, err := Is(src).MinNum(5).MaxNum(5).Int()
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if num != src {
+		t.Fatal("not equal")
+	}
+}

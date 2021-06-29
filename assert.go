@@ -133,6 +133,52 @@ func (a *Assertion) MaxLen(val int) *Assertion {
 
 }
 
+// MinNum asserts that the value of the source
+// (formatted as int) is less than or equal to the value
+func (a *Assertion) MinNum(val int) *Assertion {
+
+	a.add(func(i interface{}) error {
+
+		num, err := strconv.Atoi(fmt.Sprintf("%v", i))
+
+		if err != nil {
+			return fmt.Errorf("assert.minnum")
+		}
+
+		if num >= val {
+			return nil
+		}
+
+		return fmt.Errorf("assert.minnum")
+	})
+
+	return a
+
+}
+
+// MaxNum asserts that the value of the source
+// (formatted as int) is greater than or equal to the value
+func (a *Assertion) MaxNum(val int) *Assertion {
+
+	a.add(func(i interface{}) error {
+
+		num, err := strconv.Atoi(fmt.Sprintf("%v", i))
+
+		if err != nil {
+			return fmt.Errorf("assert.maxnum")
+		}
+
+		if num <= val {
+			return nil
+		}
+
+		return fmt.Errorf("assert.maxnum")
+	})
+
+	return a
+
+}
+
 // Regex asserts that the source (formatted as string) matches
 // the regex pattern specified
 func (a *Assertion) Regex(val string) *Assertion {
