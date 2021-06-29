@@ -46,6 +46,7 @@ func main() {
 | MaxLen     | int           | Checks if the length of input (formatted to string) is less than or equal to the argument    |
 | Regex      | string        | Checks if the input (formatted to string) matches the provided regex pattern                 |
 | Email      |               | Checks if the input (formatted to string) is a valid email                                   |
+| Alpha      |               | Checks if the input (formatted to string) only contains a-z and A-Z                          |
 
 ### Available type cast assertions
 
