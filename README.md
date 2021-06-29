@@ -16,7 +16,7 @@ go get github.com/sindreslungaard/assert
 
 ### Examples
 
-Simple example of validating the length of a string
+Simple example of validating the character length of an interface and returning it as a string
 
 ```go
 package main
