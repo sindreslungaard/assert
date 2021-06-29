@@ -33,7 +33,7 @@ func main() {
         // handle error
     }
 
-    // str = some-value
+    // str == "some-value"
 }
 ```
 
