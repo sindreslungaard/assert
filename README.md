@@ -49,6 +49,8 @@ func main() {
 
 Type casts should always be last in your assertion chain, they are what executes all assertions in the chain and returns any errors or the input converted to the new type.
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| String | Formats the input as a string using `fmt.Sprintf` |
+| Type    | Description                                                                                    |
+| ------- | ---------------------------------------------------------------------------------------------- |
+| String  | Formats the input as a string using `fmt.Sprintf`                                              |
+| Int     | Formats the input as an int using `fmt.Sprintf -> strconv.Atoi`                                |
+| Float64 | Formats the input as a float64 using `fmt.Sprintf -> strconv.ParseFloat` with 64 bit precision |

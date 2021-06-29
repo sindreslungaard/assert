@@ -1,6 +1,9 @@
 package assert
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 type AssertFunc func(interface{}) error
 
@@ -45,6 +48,40 @@ func (a *Assertion) String() (string, error) {
 	}
 
 	return fmt.Sprintf("%v", a.src), nil
+}
+
+// Int runs all assertions and returns the source as an int and errors if any
+func (a *Assertion) Int() (int, error) {
+	err := assert(a.src, a.tests)
+
+	if err != nil {
+		return 0, err
+	}
+
+	num, err := strconv.Atoi(fmt.Sprintf("%v", a.src))
+
+	if err != nil {
+		return 0, fmt.Errorf("assert.int")
+	}
+
+	return num, nil
+}
+
+// Float runs all assertions and returns the source as a float64 and errors if any
+func (a *Assertion) Float64() (float64, error) {
+	err := assert(a.src, a.tests)
+
+	if err != nil {
+		return 0, err
+	}
+
+	num, err := strconv.ParseFloat(fmt.Sprintf("%v", a.src), 64)
+
+	if err != nil {
+		return 0, fmt.Errorf("assert.float")
+	}
+
+	return num, nil
 }
 
 // NotEmpty asserts that the string representation of the
