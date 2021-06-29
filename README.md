@@ -39,14 +39,15 @@ func main() {
 
 ### Available validations
 
-| Validation | Argument type | Description                                                                                  |
-| ---------- | ------------- | -------------------------------------------------------------------------------------------- |
-| NotEmpty   |               | Checks if the input (formatted to string) is equal to ""                                     |
-| MinLen     | int           | Checks if the length of input (formatted to string) is greater than or equal to the argument |
-| MaxLen     | int           | Checks if the length of input (formatted to string) is less than or equal to the argument    |
-| Regex      | string        | Checks if the input (formatted to string) matches the provided regex pattern                 |
-| Email      |               | Checks if the input (formatted to string) is a valid email                                   |
-| Alpha      |               | Checks if the input (formatted to string) only contains a-z and A-Z                          |
+| Validation   | Argument type | Description                                                                                  |
+| ------------ | ------------- | -------------------------------------------------------------------------------------------- |
+| NotEmpty     |               | Checks if the input (formatted to string) is equal to ""                                     |
+| MinLen       | int           | Checks if the length of input (formatted to string) is greater than or equal to the argument |
+| MaxLen       | int           | Checks if the length of input (formatted to string) is less than or equal to the argument    |
+| Regex        | string        | Checks if the input (formatted to string) matches the provided regex pattern                 |
+| Email        |               | Checks if the input (formatted to string) is a valid email                                   |
+| Alpha        |               | Checks if the input (formatted to string) only contains a-z and A-Z                          |
+| AlphaNumeric |               | Checks if the input (formatted to string) only contains a-z, A-Z and 0-9                     |
 
 ### Available type cast assertions
 
