@@ -6,7 +6,7 @@ Dead simple 0 dependency "typed" golang validator
 
 Most go validators use either struct tags or a string based representation of the validation rules, and while there's nothing wrong with that, sometimes you just want to quickly validate an input and perhaps cast it to a different type from which you received it.
 
-With assert you may also rest assured you did not typo any of the validation rules as all rules are functions, hence a bit more "typed" than something like `validate:"requird,min=4,max=5"`
+With assert you may also rest assured you did not typo any of the validation rules as all rules are functions, hence a bit more "typed" than something like `validate:"required,min=4,max=5"`
 
 ### Installing
 
