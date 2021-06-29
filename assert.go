@@ -2,6 +2,7 @@ package assert
 
 import (
 	"fmt"
+	"regexp"
 	"strconv"
 )
 
@@ -126,6 +127,29 @@ func (a *Assertion) MaxLen(val int) *Assertion {
 		}
 
 		return fmt.Errorf("assert.maxlength")
+	})
+
+	return a
+
+}
+
+// Regex asserts that the source (formatted as string) matches
+// the regex pattern specified
+func (a *Assertion) Regex(val string) *Assertion {
+
+	a.add(func(i interface{}) error {
+
+		r, err := regexp.Compile(val)
+
+		if err != nil {
+			return fmt.Errorf("assert.regex.compile")
+		}
+
+		if r.MatchString(fmt.Sprintf("%v", i)) {
+			return nil
+		}
+
+		return fmt.Errorf("assert.regex")
 	})
 
 	return a
