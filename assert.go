@@ -35,6 +35,17 @@ func Is(src interface{}) *Assertion {
 	}
 }
 
+func First(e ...error) error {
+
+	for _, err := range e {
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 // add adds an AssertFunc to the list of tests to run later
 func (a *Assertion) add(f AssertFunc) {
 	a.tests = append(a.tests, f)
