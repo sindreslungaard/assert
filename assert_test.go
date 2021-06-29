@@ -65,3 +65,17 @@ func TestGeneralPurposeRegex(t *testing.T) {
 	}
 
 }
+
+func TestEmail(t *testing.T) {
+	src := "some@email.com"
+
+	str, err := Is(src).Email().String()
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if str != src {
+		t.Fatal("not equal")
+	}
+}
