@@ -37,6 +37,52 @@ func main() {
 }
 ```
 
+Every assertion formats the input to a type it prefers to test on before executing, so you can do number assertions on string values and so on
+
+```go
+num, err := assert.Is("55").MinNum(50).Int()
+num, err := assert.Is(55).MinNum(50).Int()
+// Both of these are OK
+```
+
+Example validation for a http form POST request
+
+```go
+func mySignupHandler(c *gin.Context) {
+
+    username, err := assert.Is(c.PostForm("username")).MinLen(3).MaxLen(20).AlphaNumeric().String()
+
+    if err != nil {
+        // let the user know
+    }
+
+    password, err := assert.Is(c.PostForm("password")).MinLen(8)
+
+    if err != nil {
+        // let the user know
+    }
+
+}
+```
+
+We can recude the number of error checks with `assert.First`
+
+```go
+func mySignupHandler(c *gin.Context) {
+
+    username, err1 := assert.Is(c.PostForm("username")).MinLen(3).MaxLen(20).AlphaNumeric().String()
+    email,    err2 := assert.Is(c.PostForm("email")).Email().String()
+    password, err3 := assert.Is(c.PostForm("password")).MinLen(8).String()
+
+    err := assert.First(err1, err2, err3)
+
+    if err != nil {
+        // let the user know
+    }
+
+}
+```
+
 ### Available validations
 
 | Validation   | Argument type | Description                                                                                  |
