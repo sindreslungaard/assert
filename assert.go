@@ -225,5 +225,5 @@ func (a *Assertion) Alpha() *Assertion {
 
 // AlphaNumeric asserts that the source (formatted as string) only containes characters a-z, A-Z and 0-9
 func (a *Assertion) AlphaNumeric() *Assertion {
-	return a.Regex("^[a-zA-Z]+$")
+	return a.Regex("^[a-zA-Z0-9]+$")
 }
